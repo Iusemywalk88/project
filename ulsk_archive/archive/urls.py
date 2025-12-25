@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('catalog/', views.catalog, name='catalog'),
     path('video/<int:video_id>/', views.detail, name='detail'),
+    path('stream/<int:video_id>/', views.stream_video, name='stream_video'),
 ]
