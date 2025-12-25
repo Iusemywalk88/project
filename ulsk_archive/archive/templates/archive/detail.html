@@ -1,0 +1,35 @@
+{% extends 'archive/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">{{ video.title }}</h1>
+    <div class="row">
+        <div class="col-lg-8">
+            {% if video.video_file %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <video class="embed-responsive-item" controls>
+                    <source src="{{ video.video_file.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            {% elif video.video_url %}
+                {% if "youtube.com/watch" in video.video_url %}
+                    {% with youtube_id=video.video_url|cut:"watch?v="|cut:"https://www.youtube.com/" %}
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ youtube_id }}" allowfullscreen></iframe>
+                    </div>
+                    {% endwith %}
+                {% else %}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="{{ video.video_url }}" allowfullscreen></iframe>
+                </div>
+                {% endif %}
+            {% else %}
+            <p>No video available.</p>
+            {% endif %}
+            <p class="mt-4">{{ video.description }}</p>
+        </div>
+    </div>
+    <a href="{% url 'archive:catalog' %}" class="btn btn-secondary mt-3">Назад к каталогу</a>
+</div>
+{% endblock %}
