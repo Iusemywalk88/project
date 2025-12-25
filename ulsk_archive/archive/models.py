@@ -6,6 +6,7 @@ class Video(models.Model):
     description = models.TextField()
     video_url = models.URLField(blank=True, null=True)
     video_file = models.FileField(upload_to='videos/', blank=True, null=True)
+    cover_image = models.ImageField(upload_to='covers/', blank=True, null=True)
 
     def clean(self):
         if not self.video_url and not self.video_file:

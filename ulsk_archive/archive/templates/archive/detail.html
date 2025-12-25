@@ -7,7 +7,7 @@
         <div class="col-lg-8">
             {% if video.video_file %}
             <div class="embed-responsive embed-responsive-16by9">
-                <video class="embed-responsive-item" controls>
+                <video class="embed-responsive-item" controls {% if video.cover_image %}poster="{{ video.cover_image.url }}"{% endif %}>
                     <source src="{% url 'archive:stream_video' video.id %}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>

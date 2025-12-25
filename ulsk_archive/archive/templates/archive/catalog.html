@@ -7,6 +7,9 @@
         {% for video in videos %}
         <div class="col-md-4 mb-4">
             <div class="card h-100">
+                {% if video.cover_image %}
+                    <img src="{{ video.cover_image.url }}" class="card-img-top" alt="{{ video.title }}">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ video.title }}</h5>
                     <p class="card-text">{{ video.description|truncatechars:100 }}</p>
