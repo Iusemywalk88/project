@@ -1,4 +1,5 @@
 {% extends 'archive/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="jumbotron text-center">
@@ -7,5 +8,6 @@
     <hr class="my-4">
     <p>Откройте для себя голоса прошлого и настоящего.</p>
     <a class="btn btn-primary btn-lg" href="{% url 'archive:catalog' %}" role="button">Каталог интервью</a>
+    <img src="{% static 'archive/img/new_background.jpg' %}" alt="Ulyanovsk" class="img-fluid mt-4">
 </div>
 {% endblock %}

@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{% static 'archive/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'archive/css/style.css' %}?v=3" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -23,10 +23,6 @@
             text-align: center;
         }
         .jumbotron {
-            background-image: url('{% static 'archive/img/new_background.jpg' %}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             color: black; /* Changed to black for contrast */
             padding: 4rem 2rem;
             margin-bottom: 2rem;
